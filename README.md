@@ -4,7 +4,15 @@
 The latest version of the model is available here: [http://zil.ipipan.waw.pl/SpacyPL](http://zil.ipipan.waw.pl/SpacyPL)
 
 ## Installation
-Install package as any other python module: 
+First, you need to install spaCy. Please refer to the [official documentation](https://spacy.io/usage) to do so.
+
+For example, using Anaconda:
+
+```bash
+conda install -c conda-forge spacy
+```
+
+Then, install the Polish package as any other python module: 
 
 ```bash
 python -m pip install pl_spacy_model-x.x.x.tar.gz
