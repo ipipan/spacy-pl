@@ -23,7 +23,7 @@ for token in doc:
 ```
 
 ## A more complete example
-Please see this [Jupyter notebook](spaCy-PL-demo.ipynb)
+Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy-PL-demo.ipynb)
 
 ## What is included?
 
