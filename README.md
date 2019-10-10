@@ -45,7 +45,10 @@ The tagger has been trained on a corpus consisting of the 1 million word subcurp
 For training a dependency parser, we've used the [PDB UD treebank](https://universaldependencies.org/treebanks/pl_pdb/index.html)
 
 ### Named Entity Recognizer
-NER model has been trained on the 1 million word subcurpous of the [National Corpus of Polish](http://clip.ipipan.waw.pl/NationalCorpusOfPolish}. 
+NER model has been trained on the 1 million word subcurpous of the [National Corpus of Polish](http://clip.ipipan.waw.pl/NationalCorpusOfPolish). 
+
+### Word embeddings
+Word embeddings trained on KGR10 corpus (over 4 billion of words) using Fasttext by Jan Kocoń and Michał Gawor (https://clarin-pl.eu/dspace/handle/11321/606).
 
 ## Change history
  * 0.0.3 -- added support for spaCy 2.2
