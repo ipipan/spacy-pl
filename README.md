@@ -1,7 +1,7 @@
 # spaCy: Polish language pipeline and models
 
 ## Where to get it
-The latest version of the model is available here: [http://zil.ipipan.waw.pl/SpacyPL]()
+The latest version of the model is available here: [http://zil.ipipan.waw.pl/SpacyPL](http://zil.ipipan.waw.pl/SpacyPL)
 
 ## Installation
 Install package as any other python module: 
