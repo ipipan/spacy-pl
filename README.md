@@ -50,6 +50,8 @@ NER model has been trained on the 1 million word subcurpous of the [National Cor
 ### Word embeddings
 Word embeddings trained on KGR10 corpus (over 4 billion of words) using Fasttext by Jan Kocoń and Michał Gawor (https://clarin-pl.eu/dspace/handle/11321/606).
 
+Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy-PL-embeddings.ipynb) for a demo.
+
 ## Change history
  * 0.0.3 -- added support for spaCy 2.2
 
