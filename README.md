@@ -33,6 +33,8 @@ for token in doc:
 ## A more complete example
 Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy-PL-demo.ipynb)
 
+or this [poster](poster.pdf) and [presentation](presentation.pdf).
+
 ## What is included?
 
 ### Lemmatizer
@@ -59,3 +61,8 @@ Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/sp
 Ryszard Tuora
 
 supervision: Łukasz Kobyliński
+
+## Citing
+Ryszard Tuora and Łukasz Kobyliński, "Integrating Polish Language Tools and Resources in spaCy". In: Proceedings of PP-RAI'2019 Conference, 16-18.10.2019, Wrocław, Poland.
+
+![Poster](img/poster.png)
