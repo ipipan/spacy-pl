@@ -18,7 +18,7 @@ Then, after downloading the package, install it as any other python module:
 python -m pip install PATH/TO/pl_spacy_model-x.x.x.tar.gz
 ```
 
-If you can install the [Morfeusz 2] (http://morfeusz.sgjp.pl/download/en) embeddings for Python, we reccomend using the `pl_spacy_model_morfeusz` version of our model, which is superior in performance. For details, please see the __pl_spacy_model_morfeusz__ section below.
+If you can install the [Morfeusz 2](http://morfeusz.sgjp.pl/download/en) bindings for Python, we reccomend using the `pl_spacy_model_morfeusz` version of our model, which is superior in performance. For details, please see the __pl_spacy_model_morfeusz__ section below.
 
 ```bash
 python -m pip install PATH/TO/pl_spacy_model_morfeusz-x.x.x.tar.gz
