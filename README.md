@@ -44,7 +44,7 @@ The lemmatizer is implemented as a look-up table, using a lemma dictionary impor
 The tagger has been trained on a corpus consisting of the 1 million word subcurpous of the [National Corpus of Polish](http://clip.ipipan.waw.pl/NationalCorpusOfPolish} and the 500k [Frequency Corpus of the 1960s Polish language](http://clip.ipipan.waw.pl/PL196x). For tasks involving Polish language only, we reccomend using the internal tagset (`token.tag_` as opposed to `token.pos_`), because the latter is a lossy mapping of the former.
 
 ### Depenendency Parser
-For training a dependency parser, we've used the [LFG UD treebank](https://universaldependencies.org/treebanks/pl_lfg/index.html)
+For training a dependency parser, we've used the [PDB UD treebank](https://universaldependencies.org/treebanks/pl_pdb/index.html)
 
 ### Named Entity Recognizer
 NER model has been trained on the 1 million word subcurpous of the [National Corpus of Polish](http://clip.ipipan.waw.pl/NationalCorpusOfPolish). 
@@ -55,6 +55,10 @@ Word embeddings trained on KGR10 corpus (over 4 billion of words) using Fasttext
 Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy-PL-embeddings.ipynb) for a demo.
 
 ## Change history
+ * 0.0.5 -- several changes
+   * corrected errors in NER model,
+   * parser trained on PDB treebank (instead of LFG),
+   * added version using Morfeusz library as an external dependency; more detailed morphosyntactic tags are available in token.tag_ attribute.
  * 0.0.3 -- added support for spaCy 2.2
 
 ## Authors
