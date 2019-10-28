@@ -67,6 +67,9 @@ Morfeusz 2 is used within our custom pipeline component called Preprocessor. The
 
 In this version of the model, the `token.tag_` attribute returns an extended tag, instead of a POS tag only. Because of contextual ambiguity, there are usually mutiple analyses, and the extended tag consists only of those features, on which all analyses agree. For example 'kotką' will return _'SUBSG:sg:inst:f'_, 'kota' will yield _'SUBST:sg'_ while 'koteczek' will yield _'SUBST'_ only. You can obtain the POS tag by splitting on colons (`pos = token.tag_.split(':')[0]`) and the UPOS tag by `token.pos_` attribute.
 
+## Evaluation metrics
+Both the poster and the article list the evaluation scores for 0.0.3 version, for up to date results please see the `evaluation` folder.
+
 ## Change history
  * 0.0.5 -- several changes
    * corrected errors in NER model,
@@ -83,4 +86,4 @@ supervision: Łukasz Kobyliński
 ## Citing
 Ryszard Tuora and Łukasz Kobyliński, "Integrating Polish Language Tools and Resources in spaCy". In: Proceedings of PP-RAI'2019 Conference, 16-18.10.2019, Wrocław, Poland.
 
-![[Poster](img/poster.png)](poster.pdf)
+[![Poster](img/poster.png)](poster.pdf)
