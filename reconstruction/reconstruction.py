@@ -44,14 +44,5 @@ def main(dev_run: ("Runs all the training with 1 iteration only", 'option', 'd')
   assemble_model(VERSION)
   print("\nModel assembled\n")
 
-  # evaluating the model
-  try:
-    import conllu
-    from evaluation import evaluate_model
-    evaluate_model()
-  except ImportError:
-    print("Evaluation requires the 'conllu' module to be installed. If you want to see the detailed results, please install it via 'python -m pip install conllu'\n \
-Otherwise just use spaCy eval function.")
-
 if __name__ == "__main__":
     plac.call(main)
