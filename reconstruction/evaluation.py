@@ -80,8 +80,8 @@ def dox_to_conllu(dox):
   inds=[int(sent_num*(r/10)) for r in range(1,10)]
   for d in dox:
     ind+=1
-    if ind in inds:
-      print(str(ind/sent_num)+' out of '+str(sent_num)+' sentences.')
+    #if ind in inds:
+      #print(str(ind/sent_num)+' out of '+str(sent_num)+' sentences.')
     c=doc_to_conllu(d)
     conllu+=c
   return conllu
