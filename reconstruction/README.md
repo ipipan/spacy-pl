@@ -2,10 +2,13 @@ These scripts serve the purpose of reproducing the model for polish, for spaCy.
 
 The expected structure of the folder is as follows:
 
-/folder
-  /Lemmatizer.tar.gz
-  /resources.tar.gz
-  /all the other .py files
+    /folder:
+
+    folder/Lemmatizer.tar.gz
+
+    folder/resources.tar.gz
+
+    folder/all the other .py files
 
 Scripts can be either run separately, at different times (learning will take quite some time), or just called from the main script: reconstruction.py
 So, either just run reconstruction.py, or perform the following steps in the order given here.
