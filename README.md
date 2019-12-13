@@ -3,8 +3,11 @@
 ## Where to get it
 The latest version of the model is available here: [http://zil.ipipan.waw.pl/SpacyPL](http://zil.ipipan.waw.pl/SpacyPL)
 
+## Requirements
+Spacy in a version `>= 2.2`.
+
 ## Installation
-First, you need to install spaCy. Please refer to the [official documentation](https://spacy.io/usage) to do so.
+First, you need to install spaCy (we need versions `>= 2.2`). Please refer to the [official documentation](https://spacy.io/usage) to do so.
 
 For example, using Anaconda:
 
