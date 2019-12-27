@@ -1,0 +1,30 @@
+[THESE ARE THE EVALUATION DATA FOR POLEVAL 2018 task 2: NER http://2018.poleval.pl/index.php/tasks/]
+
+
+Przyjęty format to JSON z kodowaniem UTF-8.
+
+Plik ewaluacyjny zawiera dane z ponad 1800 tekstów, pochodzących ze zróżnicowanych źródeł. Plik ten jest listą zawierającą poszczególne teksty.
+
+W pliku tym, obiekt odpowiadający jednemu tekstowi jest słownikiem, podzielony jest na identyfikator ('id') oraz tekst ('text'), w którym chcemy odnaleźć jednostki nazwane. Przykładowo:
+
+[{ 
+'text':'Miasto postanowiło za jednym zamachem trzy spółki połączyć w jedną. Przygotowany jest projekt uchwały, który przewiduje wniesienie udziałów w Towarzystwie Budownictwa Społecznego "Wielkopolska" oraz Towarzystwie Budownictwa Społecznego "Nasz Dom" do Poznańskiego Towarzystwa Budownictwa Społecznego. W piątek opiniować tę propozycję będzie Komisja Gospodarki Komunalnej i Polityki Mieszkaniowej, a we wtorek zajmie się nią Rada Miasta.\n\n- Pomysł połączenia TBS-ów nie budzi wątpliwości z punktu widzenia racjonalizacji kosztów - twierdzi Tomasz Lewandowski, radny LiD i członek komisji. - Potrzebna jest jednak dyskusja o przyszłości towarzystw. Obecnie rząd pracuje nad zmianą ustawy, która przewiduje wykup mieszkań w towarzystwach budownictwa społecznego. To stworzy zupełnie nową sytuację. W związku z tym konieczne będzie podjęcie odpowiednich kroków przez miasto.\n\nNorbert Napieraj, szef klubu radnych PiS również uważa, że ze względów ekonomicznych utworzenie jednej spółki jest zasadne.\n\n- Na razie jest to jednak luźny pomysł. Nie ma konkretów - dodaje N. Napieraj. - Nasz klub jeszcze nie wypracował w sprawie tej uchwały stanowiska.',
+'id':''PCCwR-1.1-TXT/very_short/Dzienniki/1b.txt'
+}]
+
+Prosimy o przesłanie odpowiedzi rozszerzając ten słownik, umieszczając zidentyfikowane jednostki nazewnicze w wartości klucza 'answers'. Dla powyższego tekstu output powinien wyglądać w następujący sposób:
+
+[{ 
+'text':'Miasto postanowiło za jednym zamachem trzy spółki połączyć w jedną. Przygotowany jest projekt uchwały, który przewiduje wniesienie udziałów w Towarzystwie Budownictwa Społecznego "Wielkopolska" oraz Towarzystwie Budownictwa Społecznego "Nasz Dom" do Poznańskiego Towarzystwa Budownictwa Społecznego. W piątek opiniować tę propozycję będzie Komisja Gospodarki Komunalnej i Polityki Mieszkaniowej, a we wtorek zajmie się nią Rada Miasta.\n\n- Pomysł połączenia TBS-ów nie budzi wątpliwości z punktu widzenia racjonalizacji kosztów - twierdzi Tomasz Lewandowski, radny LiD i członek komisji. - Potrzebna jest jednak dyskusja o przyszłości towarzystw. Obecnie rząd pracuje nad zmianą ustawy, która przewiduje wykup mieszkań w towarzystwach budownictwa społecznego. To stworzy zupełnie nową sytuację. W związku z tym konieczne będzie podjęcie odpowiednich kroków przez miasto.\n\nNorbert Napieraj, szef klubu radnych PiS również uważa, że ze względów ekonomicznych utworzenie jednej spółki jest zasadne.\n\n- Na razie jest to jednak luźny pomysł. Nie ma konkretów - dodaje N. Napieraj. - Nasz klub jeszcze nie wypracował w sprawie tej uchwały stanowiska.',
+'id':''PCCwR-1.1-TXT/very_short/Dzienniki/1b.txt',
+'answers': 'orgName 142 193\tTowarzystwie Budownictwa Społecznego "Wielkopolska"\norgName 199 246\tTowarzystwie Budownictwa Społecznego "Nasz Dom"\nplaceName_settlement 250 262\tPoznańskiego\norgName 250 298\tPoznańskiego Towarzystwa Budownictwa Społecznego\norgName 340 394\tKomisja Gospodarki Komunalnej i Polityki Mieszkaniowej\norgName 423 434\tRada Miasta\npersName 538 556\tTomasz Lewandowski\npersName_forename 538 544\tTomasz\npersName_surname 545 556\tLewandowski\norgName 564 567\tLiD\npersName 871 887\tNorbert Napieraj\npersName_forename 871 878\tNorbert\npersName_surname 879 887\tNapieraj\norgName 908 911\tPiS\npersName 1062 1073\tN. Napieraj\npersName_forename 1062 1064\tN.\npersName_surname 1065 1073\tNapieraj\nplaceName_region 180 192\tWielkopolska'
+}]
+
+Każda jednostka nazewnicza zitentyfikowana w tekście 'text' powinna znaleźć się w osobnej linii w 'answers' (podział po \n). Linijka odpowiadająca jednej jednostce nazewniczej powinna wyglądać następująco:
+  KATEGORIA_JEDNOSTKI<spacja>OD<spacja>DO<tab>TEKST
+Gdzie:
+ - kategoria jednostki to jej typ lub podtyp wg. NKJP. Określenie podtypu następuje po '_', tj. typ_podtyp. Przykładowo, persName_forename.
+ - OD to początek (offset) mierzony w znakach od początku tekstu, gdzie zaczyna się dana jednostka.
+ - DO to koniec (offset) mierzony w znakach od początku tekstu, gdzie kończy się dana jednostka.
+ - TEKST to fragment tekstu, odpowiadający danej jednostce.
+
