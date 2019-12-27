@@ -3,9 +3,9 @@ import json
 
 
 
-model_name = input("Please input the name of the model to be loaded:")
+model_name = input("Please input the name of the model to be loaded: ")
 
-nlp = spacy.load(model_name, disable = ["tagger", "parser"])
+nlp = spacy.load(model_name)
 nlp.disable_pipes("tagger")
 nlp.disable_pipes("parser")
 
