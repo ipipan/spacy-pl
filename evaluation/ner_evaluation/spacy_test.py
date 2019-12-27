@@ -6,9 +6,16 @@ import json
 model_name = input("Please input the name of the model to be loaded: ")
 
 nlp = spacy.load(model_name)
-nlp.disable_pipes("tagger")
-nlp.disable_pipes("parser")
 
+try:
+  nlp.disable_pipes("tagger")
+except KeyError:
+  pass
+  
+try:
+  nlp.disable_pipes("parser")
+except KeyError:
+  pass
 
 test_file = open("poleval_test_ner_2018.json", "r", encoding = "utf-8")
 test_obj = json.load(test_file)
@@ -16,6 +23,7 @@ test_file.close()
 
 
 for example in test_obj:
+  entz = []
   par = example["text"]
   doc = nlp(par)
   for ent in doc.ents:
