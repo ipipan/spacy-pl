@@ -43,7 +43,7 @@ class Flexer(object):
     #right = [g for g in generation if attr in gen_to_tag(g) and gen_to_tag(g)[0] == pos_tag]
     #right = [g for g in generation if match(tag, g[2], attr)]
     if right == []:
-      return word
+      return token.orth_
 
     else:
       
