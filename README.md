@@ -1,7 +1,7 @@
 # spaCy: Polish language pipeline and models
 
 ## Where to get it
-The latest version of the model is available here: [http://zil.ipipan.waw.pl/SpacyPL](http://zil.ipipan.waw.pl/SpacyPL)
+The latest versions of the models are available here: [http://zil.ipipan.waw.pl/SpacyPL](http://zil.ipipan.waw.pl/SpacyPL)
 
 ## Requirements
 Spacy in a version `>= 2.2`.
@@ -58,6 +58,9 @@ For training a dependency parser, we've used the [PDB UD treebank](https://unive
 ### Named Entity Recognizer
 NER model has been trained on the 1 million word subcurpous of the [National Corpus of Polish](http://clip.ipipan.waw.pl/NationalCorpusOfPolish). 
 
+### Flexer
+The morfeusz-based model additionally incorporates a custom inflection component. It is deterministic and works by consulting both the tagger and the dictionaries of morfeusz. For details please see the [notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy_PL_morfeusz_demo.ipynb).
+
 ### Word embeddings
 Word embeddings trained on KGR10 corpus (over 4 billion of words) using Fasttext by Jan Kocoń and Michał Gawor (https://clarin-pl.eu/dspace/handle/11321/606). Our model uses only the vector representation for 800.000 most frequent words.
 
@@ -66,9 +69,9 @@ Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/sp
 ## pl_spacy_model_morfeusz
 This version of our model utilizes an external dependency: Morfeusz 2. We reccomend using this version, as it is significantly better for all the tasks involved. To do so you need to first install the Morfeusz 2 library, and its embeddings for Python. The detailed instructions for your architecture are available [here](http://morfeusz.sgjp.pl/download/en): Morfeusz 2 bindings are installed via easy_install, and not via pip, although we are discussing the option to switch onto pip into the future. If Morfeusz 2 is not installed correctly, you will see a warning message and the model will not work as expected.
 
-Morfeusz 2 is used within our custom pipeline component called Preprocessor. The Preprocessor first tokenizes the text, and then performs morphosyntactic analysis, and lemmatization. Since Morfeusz 2 offers multiple analyses for each token, we disambiguate these using an ordinary spaCy tagger. Because of this there is no separate tagger component in our pipeline (although there is a tagger in the model), and you cannot skip tagging during the processing stage.
+Morfeusz 2 is used within our custom pipeline component called Preprocessor. The Preprocessor first tokenizes the text, and then performs morphosyntactic analysis, and lemmatization. Since Morfeusz 2 offers multiple analyses for each token, we disambiguate these using our tagger. From `0.1.0` onwards the tagger is a integrated version of [Toygger](http://zil.ipipan.waw.pl/Scwad) (for more info see Katarzyna Krasnowska-Kieraś. Morphosyntactic disambiguation for Polish with bi-LSTM neural networks. In Zygmunt Vetulani and Patrick Paroubek, editors, Proceedings of the 8th Language & Technology Conference: Human Language Technologies as a Challenge for Computer Science and Linguistics, pages 367–371, Poznań, Poland, 2017. Fundacja Uniwersytetu im. Adama Mickiewicza w Poznaniu.). Because of this there is no separate tagger component in our pipeline (although there is a tagger in the model), and you cannot skip tagging during the processing stage.
 
-In this version of the model, the `token.tag_` attribute returns an extended tag, instead of a POS tag only. Because of contextual ambiguity, there are usually mutiple analyses, and the extended tag consists only of those features, on which all analyses agree. For example 'kotką' will return _'SUBSG:sg:inst:f'_, 'kota' will yield _'SUBST:sg'_ while 'koteczek' will yield _'SUBST'_ only. You can obtain the POS tag by splitting on colons (`pos = token.tag_.split(':')[0]`) and the UPOS tag by `token.pos_` attribute.
+In this version of the model, the `token.tag_` attribute returns the POS tag only. All the morphological features are stored in `token._.feats` custom attribute. 
 
 This [notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/spaCy_PL_morfeusz_demo.ipynb) shows some features of the model with Morfeusz 2.
 
@@ -76,6 +79,10 @@ This [notebook](https://nbviewer.jupyter.org/github/ipipan/spacy-pl/blob/master/
 Both the poster and the article list the evaluation scores for 0.0.3 version, for up to date results please see the `evaluation` folder.
 
 ## Change history
+ * 0.1.0 
+  * reduced the size of the model
+  * added the flexer component
+  * added the capabilities for full morphosyntactic analysis using Toygger
  * 0.0.5 -- several changes
    * corrected errors in NER model,
    * parser now performs sentencization correctly (you can parse whole documents now, instead of individual sentences)
