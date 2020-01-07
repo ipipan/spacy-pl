@@ -69,7 +69,7 @@ Please see this [Jupyter notebook](https://nbviewer.jupyter.org/github/ipipan/sp
 ## pl_spacy_model_morfeusz
 This version of our model utilizes an external dependency: Morfeusz 2. We reccomend using this version, as it is significantly better for all the tasks involved. To do so you need to first install the Morfeusz 2 library, and its embeddings for Python. The detailed instructions for your architecture are available [here](http://morfeusz.sgjp.pl/download/en): Morfeusz 2 bindings are installed via easy_install, and not via pip, although we are discussing the option to switch onto pip into the future. If Morfeusz 2 is not installed correctly, you will see a warning message and the model will not work as expected.
 
-Morfeusz 2 is used within our custom pipeline component called Preprocessor. The Preprocessor first tokenizes the text, and then performs morphosyntactic analysis, and lemmatization. Since Morfeusz 2 offers multiple analyses for each token, we disambiguate these using our tagger. From `0.1.0` onwards the tagger is a integrated version of [Toygger](http://zil.ipipan.waw.pl/Scwad) (for more info see Katarzyna Krasnowska-Kieraś. Morphosyntactic disambiguation for Polish with bi-LSTM neural networks. In Zygmunt Vetulani and Patrick Paroubek, editors, Proceedings of the 8th Language & Technology Conference: Human Language Technologies as a Challenge for Computer Science and Linguistics, pages 367–371, Poznań, Poland, 2017. Fundacja Uniwersytetu im. Adama Mickiewicza w Poznaniu.). Because of this there is no separate tagger component in our pipeline (although there is a tagger in the model), and you cannot skip tagging during the processing stage.
+Morfeusz 2 is used within our custom pipeline component called Preprocessor. The Preprocessor first tokenizes the text, and then performs morphosyntactic analysis, and lemmatization. Since Morfeusz 2 offers multiple analyses for each token, we disambiguate these using our tagger. From `0.1.0` onwards the tagger is a integrated version of [Toygger](http://zil.ipipan.waw.pl/Scwad) (for more info see the bibliography below). Because of this there is no separate tagger component in our pipeline (although there is a tagger in the model), and you cannot skip tagging during the processing stage.
 
 In this version of the model, the `token.tag_` attribute returns the POS tag only. All the morphological features are stored in `token._.feats` custom attribute. 
 
@@ -99,3 +99,10 @@ supervision: Łukasz Kobyliński
 Ryszard Tuora and Łukasz Kobyliński, "Integrating Polish Language Tools and Resources in spaCy". In: Proceedings of PP-RAI'2019 Conference, 16-18.10.2019, Wrocław, Poland.
 
 [![Poster](img/poster.png)](poster.pdf)
+
+## Bibliography
+
+For more info about Toygger, see here:
+
+`Katarzyna Krasnowska-Kieraś. Morphosyntactic disambiguation for Polish with bi-LSTM neural networks. In Zygmunt Vetulani and Patrick Paroubek, editors, Proceedings of the 8th Language & Technology Conference: Human Language Technologies as a Challenge for Computer Science and Linguistics, pages 367–371, Poznań, Poland, 2017. Fundacja Uniwersytetu im. Adama Mickiewicza w Poznaniu.
+`
