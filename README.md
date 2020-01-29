@@ -95,6 +95,10 @@ Ryszard Tuora
 
 supervision: Łukasz Kobyliński
 
+## Licensing
+
+Both models are available on the GNU GPL 3.0 license, which allows for commercial use. 
+
 ## Citing
 Ryszard Tuora and Łukasz Kobyliński, "Integrating Polish Language Tools and Resources in spaCy". In: Proceedings of PP-RAI'2019 Conference, 16-18.10.2019, Wrocław, Poland.
 
