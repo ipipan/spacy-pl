@@ -7,7 +7,7 @@ The latest versions of the models are available here: [http://zil.ipipan.waw.pl/
 Spacy in a version `== 2.2.4`.
 
 ## Installation
-First, you need to install spaCy (we need versions `>= 2.2`). Please refer to the [official documentation](https://spacy.io/usage) to do so.
+First, you need to install spaCy (we need versions `== 2.2.4`). Please refer to the [official documentation](https://spacy.io/usage) to do so.
 
 For example, using Anaconda:
 
